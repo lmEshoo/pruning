@@ -1,8 +1,11 @@
 # pruning
 Weight pruning aims to reduce the number of parameters and operations involved in the computationby removing connections, and thus parameters, in between neural network layers.  Practically setting the neural network parameters’ values to zero to remove what we estimate are unnecessary connectionsbetween  the  layers  of  a  neural  network.   We  can  reduce  the  size  of  the  model  for  its  storage  and/ortransmission similar. We can go a step futher and apply quantization to get even smaller model sizes.
 
+<center>
+
 ![image](https://user-images.githubusercontent.com/3256544/76695867-834d2580-6641-11ea-9e41-03e94363c492.png)
 
+</center>
 
 In this example we use CIFAR10 dataset to train a MobileNetV2 model and use magnitutde-based weight pruning method to prune the whole model. We use two approaches: 
 
