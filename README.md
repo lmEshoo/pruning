@@ -1,22 +1,16 @@
 # pruning
 Weight pruning aims to reduce the number of parameters and operations involved in the computationby removing connections, and thus parameters, in between neural network layers.  Practically setting the neural network parameters’ values to zero to remove what we estimate are unnecessary connectionsbetween  the  layers  of  a  neural  network.   We  can  reduce  the  size  of  the  model  for  its  storage  and/ortransmission similar. We can go a step futher and apply quantization to get even smaller model sizes.
 
-<center>
+<div style="text-align:center"><img src="https://user-images.githubusercontent.com/3256544/76695867-834d2580-6641-11ea-9e41-03e94363c492.png" /></div>
 
-![image](https://user-images.githubusercontent.com/3256544/76695867-834d2580-6641-11ea-9e41-03e94363c492.png)
-
-</center>
 
 In this example we use CIFAR10 dataset to train a MobileNetV2 model and use magnitutde-based weight pruning method to prune the whole model. We use two approaches: 
 
 1) We use Keras optimazation toolkit which iteratively remove connections based on their magnitude, during training. Then, we run the final model through quantization.
 2) We designed our own unrecoverable magnitutde-based weight pruning method which is illustrated below.
 
-<center>
 
-![image](https://user-images.githubusercontent.com/3256544/76794263-d9c27d00-6783-11ea-907c-b215780b5708.png)
-
-</center>
+<div style="text-align:center"><img src="https://user-images.githubusercontent.com/3256544/76794263-d9c27d00-6783-11ea-907c-b215780b5708.png" /></div>
 
 After training the model using the first approach, we use Keras API to define the pruning parameters, we start at thesparsity level 50% and gradually train the model to reach 90% sparsity.  As a result,  as you can see below 90% of convolution layers’ weights are pruned. We noticed 5% drop of accuracy on the pruned model.
 
